@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       responses: [],
+      key: process.env.VUE_APP_APIKEY,
     };
   },
   components: {
@@ -27,11 +28,31 @@ export default {
     formResponse,
   },
   methods: {
-    submit(prompt) {
+    async submit(prompt) {
+      const data = {
+        prompt: prompt,
+        temperature: 0.5,
+        max_tokens: 64,
+        top_p: 1.0,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0,
+      };
+
+      const response = await fetch(
+        "https://api.openai.com/v1/engines/text-curie-001/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${this.key}`,
+          },
+          body: JSON.stringify(data),
+        }
+      ).then((response) => response.json());
       this.responses.unshift({
         id: this.responses.length + 1,
-        title: prompt,
-        body: "This is the response to " + prompt,
+        prompt: prompt,
+        response: response.choices[0].text,
       });
     },
   },

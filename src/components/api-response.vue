@@ -1,12 +1,17 @@
 <template>
   <div class="api-response">
-    <p v-for="(value, name, index) in response" :key="index">
-      {{ name }}: {{ value }}
-    </p>
+    <div>
+      <h5>Prompt</h5>
+      <p>{{ response.prompt }}</p>
+    </div>
+    <div>
+      <h5>Response</h5>
+      <p>{{ response.response }}</p>
+    </div>
   </div>
 </template>
 <style scoped>
-div {
+.api-response {
   border: 1px solid black;
   color: var(--color-typography);
   border-top: 0.5px solid rgb(70, 70, 70);
