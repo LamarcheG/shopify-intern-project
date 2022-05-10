@@ -1,18 +1,39 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <form-response @submit-prompt="submit" />
+    <api-list-response :responses="responses" />
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+<style scoped>
+.home {
+  width: 80%;
+  margin: 0 auto;
 }
+</style>
+
+<script>
+import apiListResponse from "../components/api-list-response.vue";
+import formResponse from "../components/form-response.vue";
+export default {
+  name: "Home",
+  data() {
+    return {
+      responses: [],
+    };
+  },
+  components: {
+    apiListResponse,
+    formResponse,
+  },
+  methods: {
+    submit(prompt) {
+      this.responses.unshift({
+        id: this.responses.length + 1,
+        title: prompt,
+        body: "This is the response to " + prompt,
+      });
+    },
+  },
+};
 </script>
