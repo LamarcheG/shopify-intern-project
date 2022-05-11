@@ -14,11 +14,11 @@
   --step-3: clamp(1.73rem, calc(1.39rem + 1.71vw), 2.56rem);
   --step-4: clamp(2.07rem, calc(1.61rem + 2.32vw), 3.2rem);
   --step-5: clamp(2.49rem, calc(1.87rem + 3.11vw), 4.01rem);
-  --color-dark: #468c91;
-  --color-main: #5ebec4;
-  --color-light: #7bdae0;
+  --color-dark: #41591c;
+  --color-main: #418c35;
+  --color-light: #8abf39;
   --color-background: #16191b;
-  --color-typography: #b5b8bd;
+  --color-typography: #eeeeee;
 }
 
 /* Source Sans Pro Regular */

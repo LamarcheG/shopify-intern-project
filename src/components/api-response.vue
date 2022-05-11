@@ -23,11 +23,15 @@
   justify-content: center;
   flex-direction: column;
   border-radius: 20px;
-  margin: 15px 0;
+  margin: 30px 0;
 }
 p {
   margin: 0;
   padding: 0;
+}
+h5 {
+  color: var(--color-light);
+  font-family: SourceSansPro-Italic;
 }
 </style>
 <script>

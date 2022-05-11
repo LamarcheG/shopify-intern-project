@@ -13,6 +13,10 @@ ul {
   list-style: none;
   padding: 0;
 }
+h1 {
+  font-family: Ubuntu-Bold;
+  margin-top: 30px;
+}
 </style>
 <script>
 import apiResponse from "./api-response.vue";
