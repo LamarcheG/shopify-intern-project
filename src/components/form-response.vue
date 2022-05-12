@@ -1,6 +1,6 @@
 <template>
   <div class="form-container">
-    <h2>Enter a prompt:</h2>
+    <h2>{{ title }}</h2>
     <div class="input">
       <textarea type="" v-model="prompt" />
       <button @click="submit">Submit</button>
@@ -11,6 +11,7 @@
 h2 {
   font-family: Ubuntu-Bold;
   padding: 10px 0;
+  margin-top: 75px;
 }
 .form-container {
   margin-top: 50px;
@@ -42,6 +43,7 @@ button {
   font-family: Ubuntu-Bold;
   font-size: clamp(1.5rem, 2vh, 2em);
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 button:hover {
   transform: scale(1.05);
@@ -55,6 +57,12 @@ export default {
     return {
       prompt: "",
     };
+  },
+  props: {
+    title: {
+      type: String,
+      default: "Enter a prompt",
+    },
   },
   methods: {
     submit() {

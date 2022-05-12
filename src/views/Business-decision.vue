@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <form-response @submit-prompt="submit" />
+    <form-response
+      @submit-prompt="submit"
+      title="Enter a question about your business"
+    ></form-response>
     <api-list-response :responses="responses" />
   </div>
 </template>
@@ -16,7 +19,7 @@
 import apiListResponse from "../components/api-list-response.vue";
 import formResponse from "../components/form-response.vue";
 export default {
-  name: "Home",
+  name: "business-decision",
   data() {
     return {
       responses: [],
@@ -28,7 +31,7 @@ export default {
     formResponse,
   },
   mounted() {
-    this.$emit("tabChange", "home");
+    this.$emit("tabChange", "business-decision");
   },
   methods: {
     async submit(prompt) {
