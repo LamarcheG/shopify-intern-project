@@ -27,9 +27,6 @@ export default {
     apiListResponse,
     formResponse,
   },
-  mounted() {
-    this.$emit("tabChange", "home");
-  },
   methods: {
     async submit(prompt) {
       const data = {

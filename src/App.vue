@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <div class="links">
-      <router-link to="/" @tab-change="changeActiveTab">Home</router-link>
-      <router-link to="businessDecision" @tab-change="changeActiveTab"
-        >Business Decision</router-link
-      >
+      <router-link to="/">Home</router-link>
+      <router-link to="businessDecision">Business Decision</router-link>
     </div>
     <router-view />
   </div>
@@ -115,7 +113,7 @@ strong {
 a {
   font-size: var(--step-0);
   color: var(--color-typography);
-  margin-right: 20px;
+  margin-left: 20px;
   text-decoration: none;
 }
 a:hover {
@@ -126,24 +124,15 @@ a:hover {
   align-items: center;
   height: 50px;
   border-bottom: 1px solid black;
-  padding-left: 10%;
+  padding-right: 10%;
+  justify-content: right;
 }
-.active {
+.router-link-exact-active {
   color: var(--color-main);
 }
 </style>
 <script>
 export default {
   name: "App",
-  methods: {
-    changeActiveTab(event) {
-      const links = document.querySelectorAll(".links a");
-      links.forEach((link) => {
-        link.classList.remove("active");
-      });
-      console.log(event.target);
-      event.target.classList.add("active");
-    },
-  },
 };
 </script>

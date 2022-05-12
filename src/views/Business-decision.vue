@@ -30,9 +30,6 @@ export default {
     apiListResponse,
     formResponse,
   },
-  mounted() {
-    this.$emit("tabChange", "business-decision");
-  },
   methods: {
     async submit(prompt) {
       const data = {
