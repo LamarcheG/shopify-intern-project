@@ -117,7 +117,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+  color: #afafaf;
 }
 .links {
   display: flex;
@@ -126,6 +126,7 @@ a:hover {
   border-bottom: 1px solid black;
   padding-right: 10%;
   justify-content: right;
+  background-color: #131516;
 }
 .router-link-exact-active {
   color: var(--color-main);

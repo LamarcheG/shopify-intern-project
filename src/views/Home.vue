@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       responses: [],
-      key: "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",
+      key: `${process.env.VUE_APP_API_KEY}`,
     };
   },
   components: {

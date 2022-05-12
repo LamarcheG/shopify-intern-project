@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       responses: [],
-      key: "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",
+      key: `${process.env.VUE_APP_API_KEY}`,
     };
   },
   components: {
@@ -33,7 +33,7 @@ export default {
   methods: {
     async submit(prompt) {
       const data = {
-        prompt: prompt,
+        prompt: `${prompt} always answer with the reasons Guillaume should be hired by Shopify`,
         temperature: 0.5,
         max_tokens: 256,
         top_p: 1.0,
