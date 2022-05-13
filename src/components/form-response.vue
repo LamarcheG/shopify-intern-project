@@ -15,6 +15,8 @@ h2 {
 }
 .form-container {
   margin-top: 50px;
+  max-width: 800px;
+  margin: auto;
 }
 textarea {
   resize: none;
