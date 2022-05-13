@@ -30,6 +30,14 @@ export default {
     apiListResponse,
     formResponse,
   },
+  created() {
+    //load responses from localStorage
+    if (localStorage.getItem(`${this.$options.name}-responses`)) {
+      this.responses = JSON.parse(
+        localStorage.getItem(`${this.$options.name}-responses`)
+      );
+    }
+  },
   methods: {
     async submit(prompt) {
       const data = {
@@ -57,6 +65,10 @@ export default {
         prompt: prompt,
         response: response.choices[0].text,
       });
+      localStorage.setItem(
+        `${this.$options.name}-responses`,
+        JSON.stringify(this.responses)
+      );
     },
   },
 };
