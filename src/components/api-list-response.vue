@@ -19,11 +19,10 @@ h2 {
 }
 /*slide in animation */
 .slide-enter-active,
-.slide-leave-active {
+.slide-move {
   transition: all 0.5s;
 }
-.slide-enter,
-.slide-leave-to {
+.slide-enter {
   opacity: 0;
   transform: translateX(-100px);
 }

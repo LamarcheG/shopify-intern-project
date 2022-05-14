@@ -1,12 +1,15 @@
 <template>
-  <div class="home">
-    <form-response @submit-prompt="submit" />
+  <div class="container">
+    <form-story-maker
+      @submit-prompt="submit"
+      title="Story Maker"
+    ></form-story-maker>
     <api-list-response :responses="responses" />
   </div>
 </template>
 
 <style scoped>
-.home {
+.container {
   width: 80%;
   margin: 0 auto;
 }
@@ -14,9 +17,9 @@
 
 <script>
 import apiListResponse from "../components/api-list-response.vue";
-import formResponse from "../components/form-response.vue";
+import formStoryMaker from "../components/form-story-maker.vue";
 export default {
-  name: "Home",
+  name: "story-maker",
   data() {
     return {
       responses: [],
@@ -25,7 +28,7 @@ export default {
   },
   components: {
     apiListResponse,
-    formResponse,
+    formStoryMaker,
   },
   created() {
     //load responses from localStorage
@@ -39,8 +42,8 @@ export default {
     async submit(prompt) {
       const data = {
         prompt: prompt,
-        temperature: 0.2,
-        max_tokens: 256,
+        temperature: 0.9,
+        max_tokens: 500,
         top_p: 1.0,
         frequency_penalty: 0.0,
         presence_penalty: 0.0,

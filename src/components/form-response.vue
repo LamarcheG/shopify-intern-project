@@ -1,10 +1,17 @@
 <template>
   <div class="form-container">
     <h2>{{ title }}</h2>
-    <div class="input">
-      <textarea type="" v-model="prompt" />
-      <button @click="submit">Submit</button>
-    </div>
+    <form @submit.prevent="submit">
+      <div class="input">
+        <textarea
+          type=""
+          v-model="prompt"
+          placeholder="Enter prompt here:"
+          required
+        />
+        <button type="submit">Submit</button>
+      </div>
+    </form>
   </div>
 </template>
 <style scoped>
@@ -28,6 +35,7 @@ textarea {
   padding: 5px;
   font-family: SourceSansPro;
   font-size: var(--step-0);
+  outline: none;
 }
 .input {
   display: flex;
@@ -49,6 +57,7 @@ button {
 }
 button:hover {
   transform: scale(1.05);
+  border-radius: 15px;
 }
 </style>
 
@@ -63,7 +72,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Enter a prompt",
+      default: "Enter a prompt:",
     },
   },
   methods: {

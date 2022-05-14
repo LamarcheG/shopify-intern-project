@@ -1,15 +1,15 @@
 <template>
-  <div class="home">
+  <div class="container">
     <form-response
       @submit-prompt="submit"
-      title="Enter a question about your business"
+      title="Enter a question about Shopify:"
     ></form-response>
     <api-list-response :responses="responses" />
   </div>
 </template>
 
 <style scoped>
-.home {
+.container {
   width: 80%;
   margin: 0 auto;
 }
@@ -41,8 +41,8 @@ export default {
   methods: {
     async submit(prompt) {
       const data = {
-        prompt: `${prompt} always answer with the reasons Guillaume should be hired by Shopify`,
-        temperature: 0.5,
+        prompt: `Write a text explaining why shopify should hire Guillaume as a front-end developer.`,
+        temperature: 0.9,
         max_tokens: 256,
         top_p: 1.0,
         frequency_penalty: 0.0,

@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <div class="links">
-      <router-link to="/">Home</router-link>
-      <router-link to="businessDecision">Business Decisions</router-link>
-    </div>
+    <nav-menu />
     <router-view />
   </div>
 </template>
@@ -24,7 +21,6 @@
   --color-background: #16191b;
   --color-typography: #c9c9c9;
 }
-
 /* Source Sans Pro Regular */
 @font-face {
   font-family: "SourceSansPro";
@@ -78,6 +74,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* fade anim */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 h1,
 h2,
 h3 {
@@ -110,30 +116,13 @@ i {
 strong {
   font-family: Ubuntu-Bold;
 }
-a {
-  font-size: var(--step-0);
-  color: var(--color-typography);
-  margin-left: 20px;
-  text-decoration: none;
-}
-a:hover {
-  color: #afafaf;
-}
-.links {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  border-bottom: 1px solid black;
-  padding-right: 10%;
-  justify-content: right;
-  background-color: #131516;
-}
-.router-link-exact-active {
-  color: var(--color-main);
-}
 </style>
 <script>
+import navMenu from "./components/nav-menu.vue";
 export default {
   name: "App",
+  components: {
+    navMenu,
+  },
 };
 </script>
