@@ -1,15 +1,15 @@
 <template>
-  <div class="container">
-    <form-story-maker
+  <div class="home">
+    <form-response
       @submit-prompt="submit"
-      title="Backstory maker"
-    ></form-story-maker>
+      title="Enter the interview question you have to answer"
+    />
     <api-list-response :responses="responses" />
   </div>
 </template>
 
 <style scoped>
-.container {
+.home {
   width: 80%;
   margin: 0 auto;
 }
@@ -17,10 +17,10 @@
 
 <script>
 import apiListResponse from "../components/api-list-response.vue";
-import formStoryMaker from "../components/form-story-maker.vue";
+import formResponse from "../components/form-response.vue";
 import { bus } from "../main";
 export default {
-  name: "story-maker",
+  name: "interview-answers",
   data() {
     return {
       responses: [],
@@ -29,7 +29,7 @@ export default {
   },
   components: {
     apiListResponse,
-    formStoryMaker,
+    formResponse,
   },
   created() {
     //load responses from localStorage
@@ -41,15 +41,15 @@ export default {
   },
   methods: {
     async submit(prompt) {
+      const newPrompt = `What is the best answer to this interview question: ${prompt}`;
       const data = {
-        prompt: prompt,
-        temperature: 0.9,
-        max_tokens: 500,
+        prompt: newPrompt,
+        temperature: 0.8,
+        max_tokens: 256,
         top_p: 1.0,
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
       };
-
       const response = await fetch(
         "https://api.openai.com/v1/engines/text-curie-001/completions",
         {
@@ -63,7 +63,7 @@ export default {
       ).then((response) => response.json());
       this.responses.unshift({
         id: this.responses.length + 1,
-        prompt: prompt,
+        prompt: newPrompt,
         response: response.choices[0].text,
       });
       bus.$emit("finish-loading");

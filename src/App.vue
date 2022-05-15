@@ -66,7 +66,7 @@ body {
   font-family: Ubuntu-Medium, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-background);
+  background-color: #16191b;
 }
 
 #app {

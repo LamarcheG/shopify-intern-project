@@ -1,15 +1,15 @@
 <template>
-  <div class="container">
+  <div class="container-shopify">
     <form-response
       @submit-prompt="submit"
-      title="Enter a question about Shopify:"
+      title="Enter a question about Shopify's future employees:"
     ></form-response>
     <api-list-response :responses="responses" />
   </div>
 </template>
 
 <style scoped>
-.container {
+.container-shopify {
   width: 80%;
   margin: 0 auto;
 }
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       responses: [],
-      key: "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",
+      key: "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",
     };
   },
   components: {

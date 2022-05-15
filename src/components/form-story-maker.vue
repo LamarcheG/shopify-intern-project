@@ -42,7 +42,7 @@
       </div>
       <div class="story-param-form">
         <div class="label-container">
-          <label for="nameMainCharacter">Name of main character:</label>
+          <label for="nameMainCharacter">Your name:</label>
           <label for="theme">Theme:</label>
         </div>
         <div class="input-container">
@@ -55,16 +55,11 @@
           />
           <select name="theme" v-model="theme" required>
             <option value="" selected disabled hidden>Choose here</option>
-            <option value="science-fiction">Science-fiction</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="horror">Horror</option>
-            <option value="mystery">Mystery</option>
-            <option value="romance">Romance</option>
-            <option value="thriller">Thriller</option>
-            <option value="drama">Drama</option>
-            <option value="adventure">Adventure</option>
-            <option value="action">Action</option>
-            <option value="comedy">Comedy</option>
+            <option value="past employers">Past employers</option>
+            <option value="current employer">Current employer</option>
+            <option value="friends">Friends</option>
+            <option value="family">Family</option>
+            <option value="work experience">work experience</option>
           </select>
         </div>
       </div>
@@ -134,7 +129,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
+  width: 55%;
   margin: auto;
 }
 .input-container > input,
@@ -252,10 +247,12 @@ export default {
   computed: {
     prompt: {
       get() {
-        return `Write a ${this.theme} story about ${
+        return `Write a story about ${
           this.nameMainCharacter.charAt(0).toUpperCase() +
           this.nameMainCharacter.slice(1)
-        }. The story must be minimum ${this.lengthOfStory} words long.`;
+        } and his ${this.theme}. The story must be minimum ${
+          this.lengthOfStory
+        } words long.`;
       },
       set() {
         return "";

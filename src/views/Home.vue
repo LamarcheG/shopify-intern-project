@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       responses: [],
-      key: "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",
+      key: "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",
     };
   },
   components: {

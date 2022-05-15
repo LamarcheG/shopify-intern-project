@@ -1,21 +1,32 @@
 <template>
-  <div class="form-container">
-    <h2>{{ title }}</h2>
-    <form @submit.prevent="submit">
-      <div class="input">
-        <textarea
-          type=""
-          v-model="prompt"
-          placeholder="Enter prompt here:"
-          required
-        />
-        <div v-if="loading" class="loader"></div>
-        <button v-else type="submit">Submit</button>
-      </div>
-    </form>
+  <div class="container">
+    <div class="form-container">
+      <h2>{{ title }}</h2>
+      <form @submit.prevent="submit">
+        <div class="input">
+          <textarea
+            type=""
+            v-model="prompt"
+            placeholder="Enter prompt here:"
+            required
+          />
+          <div v-if="loading" class="loader"></div>
+          <button v-else type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 <style scoped>
+.container {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  background: linear-gradient(45deg, #418c35, #235d1b, #10350b);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px;
+}
 .loader {
   margin-top: 10px;
   border: 8px solid var(--color-typography);
@@ -37,6 +48,7 @@ h2 {
   font-family: Ubuntu-Bold;
   padding: 10px 0;
   margin-top: 75px;
+  color: var(--color-background);
 }
 .form-container {
   margin-top: 50px;
@@ -48,12 +60,13 @@ textarea {
   width: 100%;
   height: 100px;
   background-color: var(--color-typography);
-  color: var(--color-dark);
+  color: var(--color-background);
   border-radius: 10px;
   padding: 5px;
   font-family: SourceSansPro;
   font-size: var(--step-0);
   outline: none;
+  border: 3px solid var(--color-light);
 }
 .input {
   display: flex;
@@ -66,7 +79,7 @@ button {
   padding: 5px 10px;
   border: 2px solid var(--color-light);
   border-radius: 10px;
-  background-color: #131516;
+  background-color: var(--color-background);
   color: var(--color-typography);
   font-family: Ubuntu-Bold;
   font-size: clamp(1.5rem, 2vh, 2em);
@@ -92,7 +105,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Enter a prompt:",
+      default: "Enter a question:",
     },
   },
   created() {
