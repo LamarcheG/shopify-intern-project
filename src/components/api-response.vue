@@ -27,11 +27,12 @@
 }
 p {
   margin: 0;
-  padding: 0;
+  padding: 4px;
 }
 h5 {
   color: var(--color-light);
   font-family: SourceSansPro-Italic;
+  padding: 4px;
 }
 </style>
 <script>

@@ -1,7 +1,7 @@
 <template>
   <div class="links">
     <router-link to="/">Home</router-link>
-    <router-link to="businessDecision">Business Decisions</router-link>
+    <router-link to="ShopifyQA">Shopify Q&A</router-link>
     <router-link to="storyMaker">Story Maker</router-link>
   </div>
 </template>

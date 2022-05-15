@@ -15,12 +15,13 @@
 <script>
 import apiListResponse from "../components/api-list-response.vue";
 import formResponse from "../components/form-response.vue";
+import { bus } from "../main";
 export default {
   name: "Home",
   data() {
     return {
       responses: [],
-      key: `${process.env.VUE_APP_API_KEY}`,
+      key: "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",
     };
   },
   components: {
@@ -62,6 +63,7 @@ export default {
         prompt: prompt,
         response: response.choices[0].text,
       });
+      bus.$emit("finish-loading");
       localStorage.setItem(
         `${this.$options.name}-responses`,
         JSON.stringify(this.responses)

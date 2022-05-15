@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import businessDecision from '../views/Business-decision.vue'
+import ShopifyQA from '../views/Business-decision.vue'
 import storyMaker from '../views/Story-maker.vue'
 
 Vue.use(VueRouter)
@@ -13,9 +13,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/businessDecision',
-    name: 'businessDecision',
-    component: businessDecision
+    path: '/ShopifyQA',
+    name: 'ShopifyQA',
+    component: ShopifyQA
   },
   {
     path: '/storyMaker',

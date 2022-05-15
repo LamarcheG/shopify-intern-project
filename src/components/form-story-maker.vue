@@ -68,12 +68,29 @@
           </select>
         </div>
       </div>
-
-      <button type="submit">Submit</button>
+      <div v-if="loading" class="loader"></div>
+      <button v-else type="submit">Submit</button>
     </form>
   </div>
 </template>
 <style scoped>
+.loader {
+  margin-top: 25px;
+  border: 8px solid var(--color-typography);
+  border-top: 8px solid var(--color-light);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 2s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 h2 {
   font-family: Ubuntu-Bold;
   padding: 10px 0;
@@ -203,6 +220,7 @@ form {
 </style>
 
 <script>
+import { bus } from "../main";
 export default {
   name: "Home",
   data() {
@@ -210,6 +228,7 @@ export default {
       theme: "",
       lengthOfStory: 0,
       nameMainCharacter: "",
+      loading: false,
     };
   },
   props: {
@@ -218,9 +237,15 @@ export default {
       default: "Enter a prompt",
     },
   },
+  created() {
+    bus.$on("finish-loading", () => {
+      this.loading = false;
+    });
+  },
   methods: {
     submit() {
       this.$emit("submit-prompt", this.prompt);
+      this.loading = true;
       this.prompt = "";
     },
   },
@@ -230,7 +255,7 @@ export default {
         return `Write a ${this.theme} story about ${
           this.nameMainCharacter.charAt(0).toUpperCase() +
           this.nameMainCharacter.slice(1)
-        }. The story must be ${this.lengthOfStory} words long.`;
+        }. The story must be minimum ${this.lengthOfStory} words long.`;
       },
       set() {
         return "";
